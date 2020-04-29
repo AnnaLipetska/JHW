@@ -8,5 +8,7 @@
     <artifactId>JHW</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
 </project>
