@@ -6,7 +6,7 @@ public class Main {
         Task1 bobik = new Task1("bobik     ", 5);
         Task1 star = new Task1(15);
         star.setName("super star");
-        anna.setName("anna");
+        anna.setName("          ");
         anna.setAge(200);
 
         System.out.println(anna.getName() + " " + anna.getAge() + " " + anna.getAgeGroup());

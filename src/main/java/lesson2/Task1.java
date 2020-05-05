@@ -75,7 +75,7 @@ public class Task1 {
     private String CheckName(String name) {
         // значение name не может быть короче чем 3 символа и длиннее чем 50 символов
         int nameLength = name.length();
-        if (name.length() >= 3 && name.length() <= 50 && name.matches("[^\u0085]+")) {
+        if (name.length() >= 3 && name.length() <= 50 && name.matches(".*[^\\s].*")) {
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
             // не зависимо от того ввел пользователь имя с большой или с маленькой буквы,
             // оно должно быть записано в переменную name с большой буквы
