@@ -80,7 +80,7 @@ public class Task1 {
             // не зависимо от того ввел пользователь имя с большой или с маленькой буквы,
             // оно должно быть записано в переменную name с большой буквы
         } else {
-            System.out.println("The length of name should be 3 to 50 symbols and can't consist of only whitespaces.");
+            System.out.println("The length of name should be 3 to 50 symbols and name can't consist of only whitespaces.");
             name = "not defined";
         }
         return name;
