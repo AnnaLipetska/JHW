@@ -3,8 +3,8 @@ package main.java.lesson2;
 public class Task1 {
     // Реализовать у класса Task1 переменные age (тип int),  name (тип String), ageGroup(тип String)
     // не должно быть возможности напрямую устанавливать или читать значение age/name, поэтому private
-    private int age;
-    private String name;
+    private int age = 0;
+    private String name = "not defined";
     private String ageGroup;
 
     // Конструктор
@@ -22,27 +22,23 @@ public class Task1 {
 
     public Task1(String name, int age) {
         this.name = CheckName(name);
-        this.age = age;
+        this.age = CheckAge(age);
         this.ageGroup = CalculateAgeGroup(age);
     }
 
 
     // реализовать методы геттеры и сеттеры для каждой переменной.
     public int getAge() {
-        return this.age;
+        return this.CheckAge(age);
     }
 
     public void setAge(int age) { // максимальныое значение для возраста - 100
-        if (age >= 0 && age <= 100) {
-            this.age = age;
-        } else { // нельзя установить значение age меньше нуля
-            System.out.println("You can't set age " + age);
-            this.age = 0;
-        }
+        age = CheckAge(age);
         ageGroup = CalculateAgeGroup(age);
     }
 
     public String getName() {
+        name = CheckName(name);
         return this.name;
     }
 
@@ -79,7 +75,7 @@ public class Task1 {
     private String CheckName(String name) {
         // значение name не может быть короче чем 3 символа и длиннее чем 50 символов
         int nameLength = name.length();
-        if (name.length() >= 3 && name.length() <= 50 && name.matches("^\\S+")) {
+        if (name.length() >= 3 && name.length() <= 50 && name.matches("[^\u0085]+")) {
             name = name.substring(0, 1).toUpperCase() + name.substring(1);
             // не зависимо от того ввел пользователь имя с большой или с маленькой буквы,
             // оно должно быть записано в переменную name с большой буквы
@@ -88,6 +84,16 @@ public class Task1 {
             name = "not defined";
         }
         return name;
+    }
+
+    private int CheckAge(int age) {
+        if (age >= 0 && age <= 100) {
+            ;
+        } else { // нельзя установить значение age меньше нуля
+            System.out.println("You can't set age " + age);
+            age = 0;
+        }
+        return age;
     }
 }
 
