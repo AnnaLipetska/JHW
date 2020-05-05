@@ -33,7 +33,7 @@ public class Task1 {
     }
 
     public void setAge(int age) { // максимальныое значение для возраста - 100
-        age = CheckAge(age);
+        this.age = CheckAge(age);
         ageGroup = CalculateAgeGroup(age);
     }
 
