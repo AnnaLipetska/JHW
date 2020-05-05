@@ -23,7 +23,7 @@ public class Task1 {
     public Task1(String name, int age) {
         this.name = CheckName(name);
         this.age = CheckAge(age);
-        this.ageGroup = CalculateAgeGroup(age);
+        this.ageGroup = CalculateAgeGroup(CheckAge(age));
     }
 
 
