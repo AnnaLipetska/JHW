@@ -1,4 +1,4 @@
-package main.java.Homework2;
+package main.java.lesson1;
 
 /* Мое имя
 Вывести на экран свое имя 5 строк по 10 раз (через пробел).

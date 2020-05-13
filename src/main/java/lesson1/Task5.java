@@ -1,4 +1,4 @@
-package main.java.Homework2;
+package main.java.lesson1;
 
 /**
  * Реализовать функцию, которая принимает строку и возвращает ее же в обратном виде
