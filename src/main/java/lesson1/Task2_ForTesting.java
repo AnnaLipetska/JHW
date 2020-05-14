@@ -1,9 +1,5 @@
 package main.java.lesson1;
 
-/* Мое имя
-Передаланное задание, так чтобы метод был вынесен из метода main и чтобы возвращал что-нибудь.
-*/
-
 public class Task2_ForTesting {
 
     public static void main(String[] args) {
