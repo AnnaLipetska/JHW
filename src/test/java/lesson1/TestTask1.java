@@ -17,7 +17,7 @@ public class TestTask1 {
     }
 
     @Test(dataProvider = "minNumbers")
-    public void minShouldReturnMinValue(int a, int b, int c, int expectedMin) {
+    public void minShouldReturnMinValueValidInput(int a, int b, int c, int expectedMin) {
         int actualMin = this.task1.min(a, b, c);
         assertEquals(
                 actualMin,
@@ -37,4 +37,3 @@ public class TestTask1 {
         };
     }
 }
-
