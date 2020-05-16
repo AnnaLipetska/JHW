@@ -18,8 +18,7 @@ public class TestTask5 {
     @Parameters({"initialString", "expectedReversedString"})
     @Test
     public void testTask5(
-            // @Optional - не могу понять как можно проставить его, если параметров больше одного
-            String initialString, String expectedReversedString) {
+            @Optional("Hi") String initialString, @Optional("iH") String expectedReversedString) {
         String actualReversedString = task5.reverse(initialString);
         assertEquals(
                 expectedReversedString,
