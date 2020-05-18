@@ -1,6 +1,7 @@
 package test.java;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -16,11 +17,13 @@ import java.util.concurrent.TimeUnit;
 public class RequestBackCallNegativeTests {
     WebDriver driver;
     WebDriverWait wait;
-    By name = By.cssSelector("[formcontrolname=’name’]");
-    By username = By.cssSelector("[formcontrolname='username']");
-    By password = By.cssSelector("[formcontrolname=’password’]");
     By personal = By.cssSelector("[class='header-topline__user-link link-dashed']");
     By register = By.cssSelector("[class='auth-modal__register-link']");
+    By name = By.xpath("//input[@formcontrolname = 'name'] ");
+    By username = By.xpath("//input[@formcontrolname='username']");
+    By password = By.xpath("//input[@formcontrolname='password']");
+    By greenButton = By.cssSelector("[class = 'button button_size_large button_color_green auth-modal__submit']");
+
 
     @BeforeMethod
     public void beforeMethod() {
@@ -32,22 +35,35 @@ public class RequestBackCallNegativeTests {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://rozetka.com.ua/"); // Зайти на главную страницу https://rozetka.com.ua/
-        wait.until(ExpectedConditions.elementToBeClickable(personal)).click(); // Нажать «войдите в личный кабинет»
-        wait.until(ExpectedConditions.elementToBeClickable(register)).click(); // Нажать «Зарегестрироваться"
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(name))).click(); // Кликнуть по полю Ваше имя
-        //wait.until(ExpectedConditions.elementToBeClickable(username)).click(); // Кликнуть по полю Эл. почта
-        //wait.until(ExpectedConditions.elementToBeClickable(password)).click(); // Кликнуть по полю Придумайте пароль
+        waitClick(personal); // Нажать «войдите в личный кабинет»
+        waitClick(register); // Нажать «Зарегестрироваться"
+
+        // Кликнуть по полям Ваше имя, Эл. почта, Приудмайте пароль
+        waitClick(name);
+        waitClick(username);
+        waitClick(password);
     }
 
+    public void waitClick(By elementToClick) {
+        wait.until(ExpectedConditions.elementToBeClickable(elementToClick)).click();
+    }
 
     @Test
     public void negAllEmpty() {
-
+        // Оставить пустыми «Ваше имя», «Эл. Почта или номер телефона», «Придумайте Пароль»
+        // Нажать «Войти»
+        waitClick(greenButton);
     }
 
     @Test
     public void negNameUsernameEmpty() {
-
+        //Оставить пустыми 2 поля из 3 «Ваше имя», «Эл. Почта или номер телефона», «Придумайте Пароль»
+        //Одно поле заполнить - Буду заполнять поле пароль.
+        WebElement passwordField = driver.findElement(password);
+        passwordField.sendKeys("Password1");
+        passwordField.sendKeys(Keys.ENTER);
+        // Нажать «Войти»
+        waitClick(greenButton);
     }
 
     @AfterMethod
