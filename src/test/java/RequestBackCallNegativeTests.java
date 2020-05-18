@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertNotEquals;
 
 public class RequestBackCallNegativeTests {
     WebDriver driver;
@@ -26,7 +27,6 @@ public class RequestBackCallNegativeTests {
     By password = By.xpath("//input[@formcontrolname='password']");
     By greenButton = By.cssSelector("[class = 'button button_size_large button_color_green auth-modal__submit']");
     String expectedColor = "rgb(248, 65, 71)";
-    String expectedGrey = "rgb(194, 194, 194)";
     String actualNameColor;
     String actualUsernameColor;
     String actualPasswordColor;
@@ -43,6 +43,7 @@ public class RequestBackCallNegativeTests {
         driver.manage().window().maximize();
         driver.get("https://rozetka.com.ua/"); // Зайти на главную страницу https://rozetka.com.ua/
         waitClick(personal); // Нажать «войдите в личный кабинет»
+        wait.until(ExpectedConditions.visibilityOfElementLocated(register)); //
         waitClick(register); // Нажать «Зарегестрироваться"
 
         // Кликнуть по полям Ваше имя, Эл. почта, Приудмайте пароль
@@ -127,11 +128,11 @@ public class RequestBackCallNegativeTests {
                         " but got " + actualUsernameColor
         );
 
-        assertEquals(
-                expectedGrey,
+        assertNotEquals(
+                expectedColor,
                 actualPasswordColor,
-                "Expected color of the border of the field Придумайте пароль to be " + expectedGrey +
-                        " but got " + actualPasswordColor
+                "Expected color of the border of the field Придумайте пароль not to be " + expectedColor +
+                        " but it is."
         );
     }
 
