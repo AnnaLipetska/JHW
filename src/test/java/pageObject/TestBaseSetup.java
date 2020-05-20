@@ -6,11 +6,11 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class DriverWrapper {
+public class TestBaseSetup {
     WebDriver driver;
 
     @BeforeMethod
-    public void beforeMethod(){
+    public void beforeMethod() {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
