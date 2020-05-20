@@ -48,9 +48,6 @@ public class RequestBackCallNegativeTests {
 
         // Кликнуть по полям Ваше имя, Эл. почта, Приудмайте пароль
 
-        waitClick(username);
-        waitClick(password);
-        waitClick(name);
     }
 
     public void waitClick(By elementToClick) {
@@ -61,17 +58,27 @@ public class RequestBackCallNegativeTests {
         return driver.findElement(field).getCssValue("border-color");
     }
 
+    public void waitRed(By fieldToHaveRedBorder) {
+        wait.until(ExpectedConditions
+                .attributeToBe(driver.findElement(fieldToHaveRedBorder), "border-color", expectedColor));
+    }
+
     @Test
     public void negAllEmpty() {
-        // Оставить пустыми «Ваше имя», «Эл. Почта или номер телефона», «Придумайте Пароль»
-        // Нажать «Войти»
-        waitClick(greenButton);
-        // Проверить что незаполненные поля подкрашены красным цветом
+        // Кликнуть по полям Ваше имя, Эл. почта, Приудмайте пароль
         waitClick(name);
         waitClick(username);
         waitClick(password);
+        // Оставить пустыми «Ваше имя», «Эл. Почта или номер телефона», «Придумайте Пароль»
+        // Нажать «Войти»
+        waitClick(greenButton);
+
+        // Проверить что незаполненные поля подкрашены красным цветом
+        waitRed(name);
         actualNameColor = getActualColor(name);
+        waitRed(username);
         actualUsernameColor = getActualColor(username);
+        waitRed(password);
         actualPasswordColor = getActualColor(password);
 
 
@@ -99,6 +106,10 @@ public class RequestBackCallNegativeTests {
 
     @Test
     public void negNameUsernameEmpty() {
+        // Кликнуть по полям Ваше имя, Эл. почта, Приудмайте пароль
+        waitClick(name);
+        waitClick(username);
+        waitClick(password);
         //Оставить пустыми 2 поля из 3 «Ваше имя», «Эл. Почта или номер телефона», «Придумайте Пароль»
         //Одно поле заполнить - Буду заполнять поле пароль.
         WebElement passwordField = driver.findElement(password);
@@ -107,10 +118,10 @@ public class RequestBackCallNegativeTests {
         // Нажать «Войти»
         waitClick(greenButton);
 
-        waitClick(name);
-        waitClick(username);
-        waitClick(password);
+        // Проверить что незаполненные поля подкрашены красным цветом, а заполненное поле не подкрашено красным
+        waitRed(name);
         actualNameColor = getActualColor(name);
+        waitRed(username);
         actualUsernameColor = getActualColor(username);
         actualPasswordColor = getActualColor(password);
 
