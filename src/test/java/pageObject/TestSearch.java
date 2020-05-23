@@ -55,7 +55,7 @@ public class TestSearch extends TestBaseSetup {
                 "Number of the links to be " + expectedNumberLinks + " but got " + actualNumberLinks);
         //.......
         // Additional check
-        List<String> expecteList = Arrays.asList(
+        List<String> expectedList = Arrays.asList(
                 "Смартфоны, ТВ и электроника",
                 "Бытовая техника, интерьер",
                 "Компьютеры и ноутбуки",
@@ -78,7 +78,7 @@ public class TestSearch extends TestBaseSetup {
 
         assertEquals(
                 acttualList,
-                expecteList,
+                expectedList,
                 "The actual list of the links is not equal to the expected list");
     }
 }
