@@ -67,13 +67,11 @@ public class TestSearch extends TestBaseSetup {
                 "Аксессуары для видеонаблюдения"
         );
 
-        String linkTest = null;
         List<String> acttualList = new ArrayList<>();
 
         List<WebElement> actualElList = searchPage.getLinksLeft();
         for (WebElement el : actualElList) {
-            linkTest = el.getText();
-            acttualList.add(linkTest);
+            acttualList.add(el.getText());
         }
 
         assertEquals(
