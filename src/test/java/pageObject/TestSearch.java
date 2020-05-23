@@ -55,7 +55,7 @@ public class TestSearch extends TestBaseSetup {
                 "Number of the links to be " + expectedNumberLinks + " but got " + actualNumberLinks);
         //.......
         // Additional check
-        List<String> expectedList = Arrays.asList(
+        List<String> expectedList = new ArrayList<>(Arrays.asList(
                 "Смартфоны, ТВ и электроника",
                 "Бытовая техника, интерьер",
                 "Компьютеры и ноутбуки",
@@ -65,7 +65,7 @@ public class TestSearch extends TestBaseSetup {
                 "Аккумуляторы и зарядные устройства для инструмента и садовой техники",
                 "Клейкая лента, скотч, стрейч пленка",
                 "Аксессуары для видеонаблюдения"
-        );
+        ));
 
         List<String> acttualList = new ArrayList<>();
 
