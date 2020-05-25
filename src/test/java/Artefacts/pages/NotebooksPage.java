@@ -18,7 +18,6 @@ public class NotebooksPage extends BasePage {
     String searchItemsXpath;
     private String producerStr;
 
-
     public NotebooksPage(WebDriver driver) {
         logger.trace("initializing");
         this.driver = driver;
@@ -53,8 +52,10 @@ public class NotebooksPage extends BasePage {
     }
 
     public List<WebElement> getElements(String searchStr) {
-        logger.info("getting all the elements that contains " + searchStr);
-        searchItemsXpath = String.format("%s/a/span[contains(text(), '%s')]", allProductsXpath, searchStr);
+        logger.info("getting all the elements that contain " + searchStr);
+        searchItemsXpath = allProductsXpath +
+                "/a/span[contains(translate(text(), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), '"
+                + searchStr.toLowerCase() + "')]";
         By searchItems = By.xpath(searchItemsXpath);
         wait.until(ExpectedConditions.visibilityOfElementLocated(searchItems));
         return driver.findElements(searchItems);
