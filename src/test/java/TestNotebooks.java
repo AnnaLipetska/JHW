@@ -1,9 +1,10 @@
-package test.java.Artefacts;
+package test.java;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test.java.Artefacts.pages.NotebooksPage;
+import test.java.TestBaseSetup;
+import test.java.pages.NotebooksPage;
 
 import static org.testng.Assert.assertEquals;
 

@@ -1,6 +1,5 @@
 package test.java.utils;
 
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;

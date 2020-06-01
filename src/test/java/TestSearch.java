@@ -1,10 +1,11 @@
-package test.java.Artefacts;
+package test.java;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import test.java.Artefacts.pages.HomePage;
-import test.java.Artefacts.pages.SearchPage;
+import test.java.TestBaseSetup;
+import test.java.pages.HomePage;
+import test.java.pages.SearchPage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -57,14 +58,14 @@ public class TestSearch extends TestBaseSetup {
         // Additional check
         List<String> expectedList = new ArrayList<>(Arrays.asList(
                 "Смартфоны, ТВ и электроника",
+                "Уцененные товары",
                 "Компьютеры и ноутбуки",
                 "Бытовая техника, интерьер",
-                "Уцененные товары",
                 "Комплектующие и аксессуары для электронных сигарет",
-                "Спорт и увлечения",
                 "Клейкая лента, скотч, стрейч пленка",
-                "Аксессуары для видеонаблюдения",
-                "Аккумуляторы и зарядные устройства для инструмента и садовой техники"
+                "Спорт и увлечения",
+                "Аккумуляторы и зарядные устройства для инструмента и садовой техники",
+                "Аксессуары для видеонаблюдения"
         ));
 
         List<String> acttualList = new ArrayList<>();

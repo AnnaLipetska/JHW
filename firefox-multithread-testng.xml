@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="First_suite" parallel="classes" thread-count="2">
+    <parameter name="browser" value="firefox"/>
+    <test name="First_test">
+        <classes>
+            <class name="test.java.TestNotebooks"/>
+            <class name="test.java.TestSearch"/>
+        </classes>
+    </test>
+</suite>

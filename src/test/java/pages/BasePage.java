@@ -1,4 +1,4 @@
-package test.java.Artefacts.pages;
+package test.java.pages;
 
 
 import org.apache.log4j.LogManager;
