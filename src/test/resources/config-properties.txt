@@ -1,0 +1,7 @@
+Был создан файл config.properties, но он был добавлен в папку .gitignore
+Следует подложить в проект файл config.properties с нужной информацией.
+
+В моем файле было:
+
+url = https://rozetka.com.ua/
+urlNotebooks = https://rozetka.com.ua/notebooks/c80004/filter/preset=workteaching/

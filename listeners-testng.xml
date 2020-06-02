@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Chrome_suite" parallel="classes" thread-count="2">
+    <listeners>
+        <listener class-name="test.java.utils.Listener"/>
+        <listener class-name="test.java.utils.AnnotationTransformer"/>
+    </listeners>
+    <parameter name="browser" value="myComp"/>
+    <test name="Chrome_test">
+        <classes>
+            <class name="test.java.Listeners.TestNotebooks"/>
+            <class name="test.java.Listeners.TestSearch"/>
+        </classes>
+    </test>
+</suite>

@@ -1,10 +1,9 @@
-package test.java;
+package test.java.Listeners;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import test.java.TestBaseSetup;
-import test.java.pages.NotebooksPage;
+import test.java.Listeners.pages.NotebooksPage;
 
 import static org.testng.Assert.assertEquals;
 

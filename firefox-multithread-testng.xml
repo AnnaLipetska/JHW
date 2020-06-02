@@ -3,8 +3,8 @@
     <parameter name="browser" value="firefox"/>
     <test name="Firefox_test">
         <classes>
-            <class name="test.java.TestNotebooks"/>
-            <class name="test.java.TestSearch"/>
+            <class name="test.java.Listeners.TestNotebooks"/>
+            <class name="test.java.Listeners.TestSearch"/>
         </classes>
     </test>
 </suite>

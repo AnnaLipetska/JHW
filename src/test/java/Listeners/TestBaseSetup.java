@@ -1,4 +1,4 @@
-package test.java;
+package test.java.Listeners;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -18,15 +19,14 @@ import java.net.URL;
 
 public class TestBaseSetup {
     WebDriver driver;
-    Screenshot screenshot;
 
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void beforeMethod(@Optional("myComp") String browser) {
+    public void beforeMethod(@Optional("myComp") String browser, ITestContext context) {
         getDriver(browser);
         driver.manage().window().maximize();
-        screenshot = new Screenshot(driver);
+        context.setAttribute("driver", driver);
     }
 
     public WebDriver getDriver(String browser) {
@@ -55,7 +55,6 @@ public class TestBaseSetup {
 
     @AfterMethod
     public void afterMethod(ITestResult result) {
-        screenshot.getScreenshot(result);
         driver.quit();
     }
 }

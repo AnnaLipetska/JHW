@@ -1,4 +1,4 @@
-package test.java.pages;
+package test.java.Listeners.pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 import java.util.List;
 
@@ -38,7 +39,7 @@ public class HomePage extends BasePage {
         logger.info("opening");
         logger.error("checking creating and functioning of the error.log");
         logger.warn("checking creating and functioning of the warn.log");
-        driver.get("https://rozetka.com.ua/");
+        driver.get(PropertyLoader.loadProperty("url"));
         logger.debug("URL: " + driver.getCurrentUrl());
         return this;
     }

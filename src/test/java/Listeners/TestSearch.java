@@ -1,11 +1,10 @@
-package test.java;
+package test.java.Listeners;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import test.java.TestBaseSetup;
-import test.java.pages.HomePage;
-import test.java.pages.SearchPage;
+import test.java.Listeners.pages.HomePage;
+import test.java.Listeners.pages.SearchPage;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -3,16 +3,16 @@
     <parameter name="browser" value="chrome"/>
     <test name="First_test">
         <classes>
-            <class name="test.java.TestNotebooks"/>
-            <class name="test.java.TestSearch"/>
+            <class name="test.java.Listeners.TestNotebooks"/>
+            <class name="test.java.Listeners.TestSearch"/>
         </classes>
     </test>
 
     <parameter name="browser" value="firefox"/>
     <test name="Second_test">
         <classes>
-            <class name="test.java.TestNotebooks"/>
-            <class name="test.java.TestSearch"/>
+            <class name="test.java.Listeners.TestNotebooks"/>
+            <class name="test.java.Listeners.TestSearch"/>
         </classes>
     </test>
 </suite>

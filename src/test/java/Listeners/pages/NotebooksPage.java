@@ -1,4 +1,4 @@
-package test.java.pages;
+package test.java.Listeners.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import test.java.utils.PropertyLoader;
 
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class NotebooksPage extends BasePage {
         logger.info("opening");
         logger.error("checking creating and functioning of the error.log");
         logger.warn("checking creating and functioning of the warn.log");
-        driver.get("https://rozetka.com.ua/notebooks/c80004/filter/preset=workteaching/");
+        driver.get(PropertyLoader.loadProperty("urlNotebooks"));
         logger.debug("URL: " + driver.getCurrentUrl());
         return this;
     }
