@@ -23,7 +23,7 @@ public class TestBaseSetup {
 
     @Parameters({"browser"})
     @BeforeMethod
-    public void beforeMethod(@Optional("chrome") String browser) {
+    public void beforeMethod(@Optional("myComp") String browser) {
         getDriver(browser);
         driver.manage().window().maximize();
         screenshot = new Screenshot(driver);
@@ -37,10 +37,14 @@ public class TestBaseSetup {
                 ChromeOptions optionsCh = new ChromeOptions();
                 optionsCh.addArguments("--disable-notifications");
                 driver = new RemoteWebDriver(new URL("http://ec2-13-59-33-74.us-east-2.compute.amazonaws.com:4444/wd/hub"), optionsCh);
-            }
-            if (browser.equals("firefox")) {
+            } else if (browser.equals("firefox")) {
                 FirefoxOptions optionsFF = new FirefoxOptions();
                 driver = new RemoteWebDriver(new URL("http://ec2-13-59-33-74.us-east-2.compute.amazonaws.com:4444/wd/hub"), optionsFF);
+            } else if (browser.equals("myComp")) {
+                System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+                ChromeOptions optionsCh = new ChromeOptions();
+                optionsCh.addArguments("--disable-notifications");
+                driver = new ChromeDriver();
             }
 
         } catch (MalformedURLException e) {
