@@ -1,5 +1,6 @@
 package test.java.Listeners.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,12 +26,14 @@ public class SearchPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Get list of all elements present")
     public List<WebElement> getElements() {
         logger.info("getting all the elements present");
         wait.until(ExpectedConditions.visibilityOfElementLocated(allProducts));
         return driver.findElements(allProducts);
     }
 
+    @Step("Get ltst of all the elements that contain the text {searchStr}")
     public List<WebElement> getElements(String searchStr) {
         logger.info("getting all the elements that contains the text that we search");
         searchItemsXpath = String.format("%s/a/span[contains(text(), '%s')]", allProductsXpath, searchStr);
@@ -39,6 +42,7 @@ public class SearchPage extends BasePage {
         return driver.findElements(searchItems);
     }
 
+    @Step("Get list of the links on the left")
     public List<WebElement> getLinksLeft() {
         logger.info("getting the list of the links on the left side of the page");
         wait.until(ExpectedConditions.visibilityOfElementLocated(linkLeft));

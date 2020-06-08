@@ -43,8 +43,8 @@ public class Listener implements ISuiteListener, ITestListener, IInvokedMethodLi
     @Override
     public void onTestFailure(ITestResult iTestResult) {
         logger.error("Test failed");
-        Screenshot screenshot = new Screenshot((WebDriver) iTestResult.getTestContext().getAttribute("driver"));
-        screenshot.getScreenshot(iTestResult);
+/*        Screenshot screenshot = new Screenshot((WebDriver) iTestResult.getTestContext().getAttribute("driver"));
+        screenshot.getScreenshot(iTestResult);*/
     }
 
     @Override

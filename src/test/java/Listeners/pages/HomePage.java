@@ -1,5 +1,6 @@
 package test.java.Listeners.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,7 +35,7 @@ public class HomePage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
-
+    @Step("Open home page")
     public HomePage open() {
         logger.info("opening");
         logger.error("checking creating and functioning of the error.log");
@@ -44,6 +45,7 @@ public class HomePage extends BasePage {
         return this;
     }
 
+    @Step("Search by {searchStr}")
     public HomePage search(String searchStr) {
         logger.info("starting the search process");
         this.searchStr = searchStr;

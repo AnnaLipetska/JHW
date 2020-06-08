@@ -1,0 +1,3 @@
+mvn clean -DsuiteXmlFile=testNotebooks.xml test
+
+allure generate allure-results -c -o allure-report

@@ -1,5 +1,6 @@
 package test.java.Listeners.pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,8 @@ public class NotebooksPage extends BasePage {
 
     private final String allProductsXpath = "//div[@class = 'goods-tile__inner']";
     private final By allProducts = By.xpath(allProductsXpath);
+    private final String allProducersXPath = "//label[@_ngcontent-c53=\"\"]";
+    private final By allProducers = By.xpath(allProducersXPath);
     String searchItemsXpath;
     private String producerStr;
 
@@ -26,6 +29,7 @@ public class NotebooksPage extends BasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Open notebooks page")
     public NotebooksPage open() {
         logger.info("opening");
         logger.error("checking creating and functioning of the error.log");
@@ -35,6 +39,18 @@ public class NotebooksPage extends BasePage {
         return this;
     }
 
+    @Step("Choose a random producer")
+    public String chooseRandomProducer() {
+        wait.until((ExpectedConditions.visibilityOfElementLocated(allProducers)));
+        List<WebElement> producers = driver.findElements(allProducers);
+        int max = producers.size();
+        int rand = (int) (Math.random() * max);
+        String producer = producers.get(rand).getAttribute("for");
+        producers.get(rand).click();
+        return producer;
+    }
+
+    @Step("Choose Producer by Producer Name {producerStr}")
     public NotebooksPage chooseProducer(String producerStr) {
         logger.info("starting choosing a producer");
         this.producerStr = producerStr;
@@ -46,12 +62,14 @@ public class NotebooksPage extends BasePage {
         return this;
     }
 
+    @Step("Get list of all present elements")
     public List<WebElement> getElements() {
         logger.info("getting all the elements present");
         wait.until(ExpectedConditions.visibilityOfElementLocated(allProducts));
         return driver.findElements(allProducts);
     }
 
+    @Step("Get list of elements that contain {searchStr}")
     public List<WebElement> getElements(String searchStr) {
         logger.info("getting all the elements that contain " + searchStr);
         searchItemsXpath = allProductsXpath +

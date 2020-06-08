@@ -1,0 +1,7 @@
+[
+  {
+    "name": "No such element",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": ".*Unable to locate element.*"
+  }
+]
