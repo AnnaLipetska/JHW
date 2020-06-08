@@ -7,3 +7,4 @@ screenshots/
 allure-results/!categories.json
 allure-results/
 allure-report/
+config.properties
